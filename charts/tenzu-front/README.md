@@ -1,6 +1,6 @@
 # tenzu-front
 
-![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square)  ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.1.0](https://img.shields.io/badge/Version-3.1.0-informational?style=flat-square)  ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A Helm chart to run the SPA frontend of Tenzu
 
@@ -20,7 +20,7 @@ A Helm chart to run the SPA frontend of Tenzu
 | sentry.enabled | bool | `false` | Whether to set the environment variable expected by the error tracker |
 | sentry.dsn | string | `nil` | Used to populate json config `sentry.dsn` |
 | sentry.environment | string | `nil` | Used to populate json config `sentry.environment`, sentry.release will be set using the image.tag value when docker image is built |
-| image | object | `{"pullPolicy":"IfNotPresent","repository":"ghcr.io/biru-scop/tenzu-back","tag":"latest"}` | Image to use for the application see: https://kubernetes.io/docs/concepts/containers/images/ |
+| image | object | `{"pullPolicy":"IfNotPresent","repository":"ghcr.io/biru-scop/tenzu-front","tag":"latest"}` | Image to use for the application see: https://kubernetes.io/docs/concepts/containers/images/ |
 | image.tag | string | `"latest"` | Overrides the image tag |
 | imagePullSecrets | list | `nil` | List of secrets needed to pull an image from a private repository see: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/ |
 | serviceAccount | object | `{"annotations":{},"automount":true,"create":true,"name":""}` | service account properties |
