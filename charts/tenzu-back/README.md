@@ -1,6 +1,6 @@
 # tenzu-back
 
-![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square)  ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.1.0](https://img.shields.io/badge/Version-3.1.0-informational?style=flat-square)  ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A Helm chart to run the API webservices backend and task queue worker of Tenzu
 
@@ -68,14 +68,16 @@ A Helm chart to run the API webservices backend and task queue worker of Tenzu
 | cronJobs | list | `[]` | list of object in format {name: string, schedule: string, command: string[]} schedule and command should be set to the format expected by CronJob (see: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) |
 | persistentVolumeClaim.media | object | `{"accessModes":["ReadWriteMany"],"resources":{"requests":{"storage":"10Gi"}}}` | Spec of the PersistentVolumeClaim used by the volume for media files |
 | persistentVolumeClaim.media.resources.requests.storage | string | `"10Gi"` | Storage size for the PersistentVolumeClaim used by the volume for media files, change the capacity to what you need |
-| postgresql.auth | object | `{"database":null,"databaseKey":null,"existingSecret":null,"password":null,"passwordKey":null,"username":null,"usernameKey":null}` | To configure the postgresql connexion you can use an existing secret, direct values or a mix of both Only use one method for each expected value |
+| postgresql.auth | object | `{"database":null,"databaseKey":null,"existingSecret":null,"password":null,"passwordKey":null,"port":null,"portKey":null,"username":null,"usernameKey":null}` | To configure the postgresql connexion you can use an existing secret, direct values or a mix of both Only use one method for each expected value |
 | postgresql.auth.existingSecret | string | `nil` | existing secret where all necessary value can be found |
 | postgresql.auth.passwordKey | string | `nil` | key to access value in existingSecret, used to populate `TENZU_DB__PASSWORD` |
 | postgresql.auth.databaseKey | string | `nil` | key to access value in existingSecret, used to populate `TENZU_DB__NAME` |
 | postgresql.auth.usernameKey | string | `nil` | key to access value in existingSecret, used to populate `TENZU_DB__USER` |
+| postgresql.auth.portKey | string | `nil` | key to access value in existingSecret, used to populate `TENZU_DB__PORT` |
 | postgresql.auth.password | string | `nil` | password value, used to populate `TENZU_DB__PASSWORD` |
 | postgresql.auth.database | string | `nil` | database name value, used to populate `TENZU_DB__NAME` |
 | postgresql.auth.username | string | `nil` | username value, used to populate `TENZU_DB__USER` |
+| postgresql.auth.port | int | `nil` | port value, used to populate `TENZU_DB__PORT` |
 | postgresql.host | string | `nil` | Used to populate `TENZU_DB__HOST` It can be something like tenzu-postgres.$NAMESPACE.svc.cluster.local |
 | redis | object | `{"existingSecret":null,"host":null,"options":"{\"health_check_interval\": 5}","password":null,"passwordKey":null}` | Specify redis configuration, password can be given directly or through a secret |
 | redis.options | string | `"{\"health_check_interval\": 5}"` | Used to populate `TENZU_EVENTS__REDIS_OPTIONS` |

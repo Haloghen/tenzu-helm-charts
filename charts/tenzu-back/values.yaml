@@ -188,12 +188,16 @@ postgresql:
     databaseKey:
     # -- (string) key to access value in existingSecret, used to populate `TENZU_DB__USER`
     usernameKey:
+    # -- (string) key to access value in existingSecret, used to populate `TENZU_DB__PORT`
+    portKey:
     # -- (string) password value, used to populate `TENZU_DB__PASSWORD`
     password:
     # -- (string) database name value, used to populate `TENZU_DB__NAME`
     database:
     # -- (string) username value, used to populate `TENZU_DB__USER`
     username:
+    # -- (int) port value, used to populate `TENZU_DB__PORT`
+    port:
   # -- (string) Used to populate `TENZU_DB__HOST`
   # It can be something like tenzu-postgres.$NAMESPACE.svc.cluster.local
   host:

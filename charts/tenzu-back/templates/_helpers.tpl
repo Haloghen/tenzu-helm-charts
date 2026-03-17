@@ -148,6 +148,9 @@ TENZU_DB__NAME: {{ .Values.postgresql.auth.database }}
 {{- if .Values.postgresql.auth.username }}
 TENZU_DB__USER: {{ .Values.postgresql.auth.username }}
 {{- end }}
+{{- if .Values.postgresql.auth.port }}
+TENZU_DB__PORT: {{ .Values.postgresql.auth.port }}
+{{- end }}
 {{- end }}
 
 {{/*
@@ -176,9 +179,16 @@ Create the postgresql env variable that can be included directly
       name: {{ .Values.postgresql.auth.existingSecret }}
       key: {{ .Values.postgresql.auth.usernameKey }}
 {{- end }}
+{{- if .Values.postgresql.auth.portKey }}
+- name: TENZU_DB__PORT
+  valueFrom:
+    secretKeyRef:
+      name: {{ .Values.postgresql.auth.existingSecret }}
+      key: {{ .Values.postgresql.auth.portKey }}
+{{- end }}
 {{- end }}
 - name: TENZU_DB__HOST
-  value: {{ required "A password is mandatory for postgresql" .Values.postgresql.host }}
+  value: {{ required "A host is mandatory for postgresql" .Values.postgresql.host }}
 {{- end }}
 
 
