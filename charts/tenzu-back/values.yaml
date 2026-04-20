@@ -59,12 +59,12 @@ email:
   ssl: False
   # -- Used to populate `TENZU_EMAIL__EMAIL_PORT`
   port: 547
-  # -- (string) Used to populate `TENZU_SUPPORT_EMAIL`
-  supportEmail:
-  # -- (string) Used to populate `TENZU_EMAIL__EMAIL_HOST`
-  host:
   # -- (string) Used to populate `TENZU_EMAIL__DEFAULT_FROM_EMAIL`
   defaultFrom:
+  # -- (string) Used to populate `TENZU_EMAIL__EMAIL_HOST`
+  host:
+  # -- (string) Used to populate `TENZU_SUPPORT_EMAIL`
+  supportEmail:
   # -- Specify s3 configuration through an existing secret
   existingSecret:
     # -- (string) The secret name containing the email configuration.
